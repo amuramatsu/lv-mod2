@@ -181,6 +181,7 @@ private void SaveConsoleBuffer( console_buf_saved_t *save )
   SMALL_RECT region;
   int        Y, incr, i;
 
+  save->wndpl.length = sizeof(WINDOWPLACEMENT);
   GetWindowPlacement( GetConsoleWindow(), &save->wndpl );
   SetLastError( NO_ERROR );
   if( !GetConsoleScreenBufferInfo( console_handle, &save->csbi ) )
@@ -233,7 +234,6 @@ private void RestoreConsoleBuffer( console_buf_saved_t *save )
 {
   if( NULL != save->buffer ){
     HWND       hwnd;
-    RECT       rect;
     int        i;
 
     /* Restore window size */
@@ -241,10 +241,12 @@ private void RestoreConsoleBuffer( console_buf_saved_t *save )
     if( !IsZoomed( hwnd ) && !IsIconic( hwnd ) ){
       /* Adjust window position */
       RECT *rc_save = &save->wndpl.rcNormalPosition;
-      GetWindowRect( hwnd, &rect );
-      rect.right = rect.left + (rc_save->right - rc_save->left);
-      rect.bottom = rect.top + (rc_save->bottom - rc_save->top);
-      *rc_save = rect;
+      WINDOWPLACEMENT wndpl;
+      wndpl.length = sizeof(WINDOWPLACEMENT);
+      GetWindowPlacement( hwnd, &wndpl );
+      wndpl.rcNormalPosition.right = wndpl.rcNormalPosition.left + (rc_save->right - rc_save->left);
+      wndpl.rcNormalPosition.bottom = wndpl.rcNormalPosition.top + (rc_save->bottom - rc_save->top);
+      *rc_save = wndpl.rcNormalPosition;
     }
     SetWindowPlacement( hwnd, &save->wndpl );
 
