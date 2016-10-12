@@ -248,7 +248,9 @@ private void RestoreConsoleBuffer( console_buf_saved_t *save )
       wndpl.rcNormalPosition.bottom = wndpl.rcNormalPosition.top + (rc_save->bottom - rc_save->top);
       *rc_save = wndpl.rcNormalPosition;
     }
-    SetWindowPlacement( hwnd, &save->wndpl );
+    if ( IsWindowVisible( hwnd ) ) {
+      SetWindowPlacement( hwnd, &save->wndpl );
+    }
 
     if( !SetConsoleScreenBufferSize( console_handle, save->csbi.dwSize ) )
       return;
