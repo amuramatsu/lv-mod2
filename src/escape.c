@@ -62,13 +62,12 @@ public boolean_t DecodeEscape( state_t *state )
 	break;
     } while( 'm' != ch );
 
-    SIDX = index;
-
     if( 'm' != ch ){
       /* invalid ANSI sequence */
-      ch = '[';
-      break;
+      return TRUE;
     }
+
+    SIDX = index;
 
     arg = 0;
     attr = color = ATTR_NULL;
