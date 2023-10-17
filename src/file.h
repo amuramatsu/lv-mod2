@@ -16,7 +16,7 @@
 #include <str.h>
 #include <stream.h>
 
-#define LV_PAGE_SIZE	32U		/* lines per page */
+#define LV_PAGE_SIZE	48U		/* lines per page */
 
 #ifdef MSDOS
 #define BLOCK_SIZE	2		/* segments on memory */
