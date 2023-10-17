@@ -37,6 +37,7 @@ all: lv.exe
 
 lv.exe: $(OBJS) $(UNIOBJS) $(WIN32OBJS)
 	$(CC) -Fe$@ $** $(LIBS) $(LDFLAGS)
+	mt.exe -manifest lv.exe.manifest -outputresource:lv.exe;1
 
 .c.$(O)::
 	$(CC) $(CFLAGS) -c $<
