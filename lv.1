@@ -1,14 +1,14 @@
-.TH LV 1 "v.4.51 (Jan.16th,2004)"
+.TH LV 1 "v.4.51.d (Feb.22nd,2018)"
 .SH NAME
 lv \- a Powerful Multilingual File Viewer / Grep
 .SH SYNOPSIS
 .B lv, lgrep
 .br
 .B lv
-\-h
+\-h, \-\-help
 .br
 .B lv
-\-V
+\-V, \-\-version
 .br
 .B lv
 [\-acdfgiklmnqstuvz] [+acdfgiklmnqstuvz]
@@ -23,7 +23,7 @@ lv \- a Powerful Multilingual File Viewer / Grep
 .br
      [\-+] [+\fInumber\fP] [+/\fIgrep-pattern\fP]
 .br
-     [\-] (\fIgrep-pattern\fP) [\fIfiles ...\fP]
+     [\-|\-\-] (\fIgrep-pattern\fP) [\fIfiles ...\fP]
 .SH DESCRIPTION
 .IP "\fIMultilingual file viewer\fP"
 \fIlv\fP is a powerful multilingual file viewer.
@@ -237,7 +237,7 @@ Clear all options
 .br
 You can also turn OFF specified options,
 using ``+<option>'' like +c, +d, ... +z.
-.IP "-"
+.IP "-, --"
 Treat the following arguments as filenames
 .IP "\fIgrep-pattern\fP"
 lv works like \fIgrep\fP (1) when its name is \fIlgrep\fP
@@ -245,9 +245,9 @@ lv works like \fIgrep\fP (1) when its name is \fIlgrep\fP
 Jump to the specified line immediately when lv is invoked.
 .IP "+/\fIgrep-pattern\fP"
 Search  the specified pattern immediately when lv is invoked.
-.IP "-V"
+.IP "-V, --version"
 Show lv version
-.IP "-h"
+.IP "-h, --help"
 Show this help
 .SH "CONFIGURATION"
 Options can be described in configuration file ``.lv'' (``_lv'' on MSDOS)
@@ -338,7 +338,7 @@ Special characters are ^, $, ., *, +, ?, [, ^, -,  ], \\.
 characters respectively. Mutually overlapping ranges (or charset)
 are not guaranteed.
 .SH "SEE ALSO"
-LV Homepage: http://www.ff.iij4u.or.jp/~nrt/lv/
+LV-mod Homepage: https://github.com/k-takata/lv-mod
 .SH "COPYRIGHT"
 All rights reserved. Copyright (C) 1996-2004 by NARITA Tomio.
 .sp
@@ -356,4 +356,4 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 .SH "BUG REPORT"
-Please send bug reports to: nrt@ff.iij4u.or.jp
+Please send bug reports to: https://github.com/k-takata/lv-mod/issues
