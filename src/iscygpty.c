@@ -59,7 +59,7 @@
 
 #include "iscygpty.h"
 
-//#define USE_DYNFILEID
+#define USE_DYNFILEID
 #ifdef USE_DYNFILEID
 typedef BOOL (WINAPI *pfnGetFileInformationByHandleEx)(
 		HANDLE                    hFile,

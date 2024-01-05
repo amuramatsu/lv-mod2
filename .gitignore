@@ -20,3 +20,5 @@ autom4te.cache
 
 TAGS
 tags
+
+*.res

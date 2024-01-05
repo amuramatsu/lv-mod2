@@ -46,9 +46,9 @@
 
 #include <import.h>
 #include <uty.h>
-#include <begin.h>
 #include <command.h>
-#include "stream.h"
+#include <begin.h>
+#include <stream.h>
 
 private byte *gz_filter = "zcat";
 private byte *bz2_filter = "bzcat";
