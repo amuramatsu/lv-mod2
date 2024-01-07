@@ -22,3 +22,5 @@ TAGS
 tags
 
 *.res
+/*.zip
+/lv.exe.manifest

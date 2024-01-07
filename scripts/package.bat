@@ -14,4 +14,5 @@ rem Remove dots
 set tag=%tag:.=%
 
 copy /y src\lv.exe .
-"%sz%" a "%tag%-win32.zip" GPL.txt hello.sample hello.sample.gif index.html lv.exe lv.hlp README README.md relnote.html
+copy /y src\lv.exe.manifest .
+"%sz%" a "%tag%-win32.zip" GPL.txt hello.sample hello.sample.gif index.html lv.exe lv.exe.manifest lv.hlp README README.md relnote.html
