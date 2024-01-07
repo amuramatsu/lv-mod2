@@ -73,7 +73,7 @@
 #ifdef USE_UNICODE_IO
 #define DEFAULT_OUTPUT_CODING_SYSTEM	UTF_8
 #define DEFAULT_KEYBOARD_CODING_SYSTEM	UTF_8
-#define DEFAULT_PATHNAME_CODING_SYSTEM	UTF_8
+#define DEFAULT_PATHNAME_CODING_SYSTEM	SHIFT_JIS
 #define DEFAULT_DEFAULT_CODING_SYSTEM	UTF_8
 #else /* USE_UNICODE_IO */
 #define DEFAULT_OUTPUT_CODING_SYSTEM	SHIFT_JIS
@@ -82,7 +82,7 @@
 #define DEFAULT_DEFAULT_CODING_SYSTEM	SHIFT_JIS
 #endif /* USE_UNICODE_IO */
 
-#define LV_CONF 	"_lv"
+#define LV_CONF 	".lv"
 #endif /* _WIN32 */
 
 #ifdef PATH_MAX
@@ -134,6 +134,13 @@ private void ConfInitArgs( conf_t *conf )
     conf->outputCodingSystem	= DEFAULT_OUTPUT_CODING_SYSTEM;
     conf->pathnameCodingSystem	= DEFAULT_PATHNAME_CODING_SYSTEM;
     conf->defaultCodingSystem	= DEFAULT_DEFAULT_CODING_SYSTEM;
+#ifdef _WIN32
+    {
+      DWORD dwVersion = GetVersion();
+      if (LOBYTE(LOWORD(dwVersion)) >= 0x6)
+	conf->pathnameCodingSystem = UTF_8;
+    }
+#endif
   }
   conf->keyCodingSystemVirgin	= TRUE;
 
