@@ -5,6 +5,7 @@
 lvlibdir=	$(libdir)/lv
 
 SUBDIRS = src
+VPATH = $(srcdir):$(builddir)
 
 man1_MANS = lv.1
 

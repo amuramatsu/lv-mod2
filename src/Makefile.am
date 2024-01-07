@@ -2,6 +2,7 @@
 # Makefile for lv
 ########################################################################
 
+VPATH = $(srcdir):$(builddir)
 lvlibdir=	$(libdir)/lv
 CFLAGS=	@CFLAGS@ -DLV_HELP_PATH=\"$(lvlibdir)\" -I$(srcdir) -DUSE_UTF16 @DEFS@
 if MINGW
