@@ -9,7 +9,7 @@ if exist "C:\Program Files\7-Zip\7z.exe" (
 	set "sz=C:\Program Files (x86)\7-Zip\7z.exe"
 )
 
-for /f %%i in ('git describe') do set tag=%%i
+for /f %%i in ('git describe --contains') do set tag=%%i
 rem Remove dots
 set tag=%tag:.=%
 
