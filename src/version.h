@@ -9,7 +9,7 @@
 #define __VERSION_H__
 
 #undef VERSION
-#define VERSION		"v.4.51.d+001 (Jan. 8th, 2024)"
+#define VERSION		"v.4.51.d+002 (Jan. 14th, 2024)"
 
 public void Banner();
 

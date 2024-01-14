@@ -308,11 +308,11 @@ public void ConsoleGetWindowSize()
   int width, height;
   GetConsoleScreenBufferInfo( console_handle, &csbi );
   width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-  height = csbi.srWindow.Bottom - csbi.srWindow.Top;
+  height = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
   if( width != WIDTH || height != HEIGHT ){
     window_changed = TRUE;
     if( WIDTH != -1 && HEIGHT != -1 ){
-      COORD coord = {width, height + 1};
+      COORD coord = {width, height};
       SetConsoleScreenBufferSize( console_handle, coord );
     }
     WIDTH = width;
